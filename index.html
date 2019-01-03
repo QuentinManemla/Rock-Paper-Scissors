@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700" rel="stylesheet">
+	<link rel="stylesheet" href="styles/bootstrap/bootstrap.min.css">
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<style type="text/css">
+		body, items-container {
+			font-family: 'Poppins', sans-serif;
+		}
+		h1 {
+			font-size: 4em
+		}
+		.yellow-bg {
+			background-color: #FFEA00;
+		}
+		.green-bg {
+			background-color: green;
+		}
+		.red-bg {
+			background-color: red;
+		}
+		.item-image {
+			cursor: pointer;
+			width: 450px;
+			transition-duration: .5s;
+		}
+		.item-image:hover {
+			width: 480px;
+			transition-duration: .5s;
+		}
+		.title-container {
+			padding-bottom: 50px;
+		}
+		.hide {
+			display: none;
+		}
+	</style>
+</head>
+<body id="body" class="yellow-bg">
+<div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
+	<div class="row">
+		<div class="col-12 title-container" style="text-align: center">
+			<h1 id="item-title">Pick your Weapon:</h1>			
+		</div>
+		<div class="col-12 col-md-12 items-container">
+			<div class="row">
+				<div class="col-4 col-md-4 item hide" id="item-winner">
+					<div class="item-image-cointainer">
+						<img id="winner" class="item-image" src="rock.svg" />
+					</div>
+				</div>
+				<div class="col-4 col-md-4 item" id="item-rock">
+					<div class="item-image-cointainer">
+						<img id="rock" class="item-image" src="rock.svg" />
+					</div>
+				</div>
+				<div class="col-4 col-md-4 item" id="item-paper">
+					<div id="item" class="item-image-cointainer">
+						<img id="paper" class="item-image" src="paper.svg" />
+					</div>
+				</div>
+				<div class="col-4 col-md-4 item" id="item-scissors">
+					<div id="item" class="item-image-cointainer">
+						<img id="scissors" class="item-image" src="scissors.svg" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<audio id="rock-audio" src="assets/rock.wav" ></audio>
+	<audio id="scissors-audio" src="assets/scissors.wav" ></audio>
+	<audio id="paper-audio" src="assets/paper.wav" ></audio>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
