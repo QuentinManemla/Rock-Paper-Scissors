@@ -17,7 +17,7 @@
 	<div class="container-fluid d-flex align-items-center justify-content-center" style="height: 100vh;">
 		<div class="row">
 			<div class="col-12 title-container" style="text-align: center">
-				<p id="player-count" class="hide">Available Opponents:</p>
+				<p id="opponent-status" class="hide">Waiting for Opponent..</p>
 				<p id="socket-error"></p>
 				<!-- <h1 id="item-title">Pick your Weapon:</h1> -->
 				<h1 id="item-title">Enter your Username</h1>
@@ -66,22 +66,28 @@
 	<script src="js/main.js"></script>
 	<script>
 		var socket = io();
-		socket.on('clientAction', function (data) {
-			var players = data.clientCount - 1;
-			$("#player-count").empty();
-			$("#player-count").append("Available Opponents: <strong>" + players + "</strong>");
-		})
+		// socket.on('clientAction', function (data) {
+		// 	var players = data.clientCount - 1;
+		// 	$("#player-count").empty();
+		// 	$("#player-count").append("Available Opponents: <strong>" + players + "</strong>");
+		// })
 		socket.on('userExists', function() {
 			$('#socket-error').empty();
 			$('#socket-error').append('That Username is Taken');
+		});
+		socket.on('foundOpponent', function(data) {
+			console.log(data);
+			$('#opponent-status').empty();
+			$('#opponent-status').append('You are up against ' + data.username);
 		});
 		socket.on('startGame', function() {
 			$('#submit-btn').addClass("hide");
 			$('#username').addClass("hide");
 			$('#items-container').removeClass("hide");
-			$('#player-count').removeClass("hide");
+			$('#opponent-status').removeClass("hide");
 			$('#item-title').empty();
 			$('#item-title').append('Pick your Weapon');
+			socket.emit('findOpponent');
 		})
 		$("#submit-btn").click(function() {
 			$('#socket-error').empty();
