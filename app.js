@@ -14,21 +14,43 @@ var clients = 0;
 var users = [];
 io.on('connection', function (socket) {
     console.log('A user connected: ' + socket.id);
-    socket.available = true;
+    var user = socket;
+    user.available = true;
+    user.selection = '';
+    user.opponent = '';
     users.push(socket);
     clients++;
 
     socket.on('findOpponent', function () {
         if (users.length) {
             for (const user of users) {
-                if (user.id != socket.id && !user.available) {
-                    console.log('FindOpponent');
-                    user.available = false;
-                    io.to('foundOpponent', user);
+                if (user.id != socket.id && user.available && user.username) {
+                    socket.emit('foundOpponent', user.username);
+                    for (const user2 of users) {
+                        if (user2.id == socket.id) {
+                            user2.opponent = user.username;
+                            user.opponent = user2.username;
+                            io.to(user.id).emit('foundOpponent', user2.username);
+                        }
+                    }
                 }
             }
         }
     })
+
+    socket.on('makeSelection', function(data) {
+        for (const user of users) {
+            if (user.id == socket.id) {
+                user.selection = data.selection;
+                for (const opponent of users) {
+                    if (opponent.username == user.opponent && opponent.selection) {
+                        socket.emit('display', {player: user.selection, opponent: opponent.selection})
+                    }
+                }
+            }
+        }
+    });
+
     socket.on('setUsername', function (data) {
         console.log('New User:' + data);
         for (const user of users) {

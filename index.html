@@ -65,34 +65,33 @@
 	 crossorigin="anonymous"></script>
 	<script src="js/main.js"></script>
 	<script>
-		var socket = io();
-		// socket.on('clientAction', function (data) {
-		// 	var players = data.clientCount - 1;
-		// 	$("#player-count").empty();
-		// 	$("#player-count").append("Available Opponents: <strong>" + players + "</strong>");
-		// })
-		socket.on('userExists', function() {
-			$('#socket-error').empty();
-			$('#socket-error').append('That Username is Taken');
-		});
-		socket.on('foundOpponent', function(data) {
-			console.log(data);
-			$('#opponent-status').empty();
-			$('#opponent-status').append('You are up against ' + data.username);
-		});
-		socket.on('startGame', function() {
-			$('#submit-btn').addClass("hide");
-			$('#username').addClass("hide");
-			$('#items-container').removeClass("hide");
-			$('#opponent-status').removeClass("hide");
-			$('#item-title').empty();
-			$('#item-title').append('Pick your Weapon');
-			socket.emit('findOpponent');
-		})
-		$("#submit-btn").click(function() {
-			$('#socket-error').empty();
-			socket.emit('setUsername', document.getElementById('username').value);
-		})
+		// var socket = io();
+
+		// socket.on('userExists', function() {
+		// 	$('#socket-error').empty();
+		// 	$('#socket-error').append('That Username is Taken');
+		// });
+
+		// socket.on('foundOpponent', function(data) {
+		// 	$('#opponent-status').empty();
+		// 	$('#opponent-status').append('You are up against ' + data);
+		// });
+
+		// socket.on('startGame', function() {
+		// 	$('#submit-btn').addClass("hide");
+		// 	$('#username').addClass("hide");
+		// 	$('#items-container').removeClass("hide");
+		// 	$('#opponent-status').removeClass("hide");
+		// 	$('#item-title').empty();
+		// 	$('#item-title').append('Pick your Weapon');
+		// 	socket.emit('findOpponent');
+		// });
+
+		// $("#submit-btn").click(function() {
+		// 	$('#socket-error').empty();
+		// 	socket.emit('setUsername', document.getElementById('username').value);
+		// });
+
 	</script>
 </body>
 
