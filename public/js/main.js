@@ -50,27 +50,27 @@ function display(player, winner) {
 /**
  * Hover Triggers
  */
-$( "#rock" ).mouseover(function() {
-    var audio = document.getElementById("rock-audio");
-    audio.play();
-    if (!selected){
-        $("#item-title").text("Rock");
-    }
-});
-$( "#paper" ).mouseover(function() {
-    var audio = document.getElementById("paper-audio");
-    audio.play();
-    if (!selected){
-    $("#item-title").text("Paper");
-    }
-});
-$( "#scissors" ).mouseover(function() {
-    var audio = document.getElementById("scissors-audio");
-    audio.play();
-    if (!selected){
-    $("#item-title").text("Scissors");
-    }
-});
+// $( "#rock" ).mouseover(function() {
+//     var audio = document.getElementById("rock-audio");
+//     audio.play();
+//     if (!selected){
+//         $("#item-title").text("Rock");
+//     }
+// });
+// $( "#paper" ).mouseover(function() {
+//     var audio = document.getElementById("paper-audio");
+//     audio.play();
+//     if (!selected){
+//     $("#item-title").text("Paper");
+//     }
+// });
+// $( "#scissors" ).mouseover(function() {
+//     var audio = document.getElementById("scissors-audio");
+//     audio.play();
+//     if (!selected){
+//     $("#item-title").text("Scissors");
+//     }
+// });
 
 /**
  * Click Events

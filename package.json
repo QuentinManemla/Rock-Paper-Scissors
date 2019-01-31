@@ -1,0 +1,24 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "Rock Paper Scissors Game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinLucyyd/Rock-Paper-Scissors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuentinLucyyd/Rock-Paper-Scissors/issues"
+  },
+  "homepage": "https://github.com/QuentinLucyyd/Rock-Paper-Scissors#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "socket.io": "^2.2.0"
+  }
+}

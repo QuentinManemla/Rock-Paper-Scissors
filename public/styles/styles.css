@@ -1,0 +1,39 @@
+body,
+items-container {
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 4em
+}
+
+.yellow-bg {
+    background-color: #FFEA00;
+}
+
+.green-bg {
+    background-color: green;
+}
+
+.red-bg {
+    background-color: red;
+}
+
+.item-image {
+    cursor: pointer;
+    width: 450px;
+    transition-duration: .5s;
+}
+
+.item-image:hover {
+    width: 480px;
+    transition-duration: .5s;
+}
+
+.title-container {
+    padding-bottom: 50px;
+}
+
+.hide {
+    display: none;
+}
