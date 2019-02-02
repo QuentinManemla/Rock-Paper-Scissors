@@ -78,6 +78,6 @@ io.on('connection', function (socket) {
     });
 });
 
-app.listen(process.env.PORT || 3001, function(){
-    console.log('Your node js server is running');
+http.listen(3000, function () {
+    console.log('listening on *:3000');
 });
