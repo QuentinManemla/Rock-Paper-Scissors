@@ -28,21 +28,21 @@ $("#submit-btn").click(function () {
     socket.emit('setUsername', document.getElementById('username').value);
 });
 
+// $("#retry-btn").click(function () {
+//     $('#item-winner').addClass('hide');
+//     $('#item-rock').removeClass('hide');
+//     $('#item-paper').removeClass('hide');
+//     $('#item-scissors').removeClass('hide');
+// });
+
 socket.on('display', function(data) {
     display(data.player, data.opponent);
+    $('#retry-btn').removeClass('hide');
 })
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
 
-function fight() {
-    var i = getRandomInt(3);
-    return items[i];
-}
 
 function display(player, winner) {
-    console.log('Player: ' + player + ' Opponent: ' + winner);
     winner_img = winner.substr(0, winner.length) + ".svg";
     $("#winner").attr("src", winner_img);
     $("#item-winner").removeClass("hide").addClass("col-6 col-md-6");

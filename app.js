@@ -45,6 +45,7 @@ io.on('connection', function (socket) {
                 for (const opponent of users) {
                     if (opponent.username == user.opponent && opponent.selection) {
                         socket.emit('display', {player: user.selection, opponent: opponent.selection})
+                        io.to(opponent.id).emit('display', {player: opponent.selection, opponent: user.selection});
                     }
                 }
             }
