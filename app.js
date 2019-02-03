@@ -2,13 +2,14 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const path = require('path');
-var io = require('socket.io')(http);
+var io = require('socket.io').listen(http);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-    res.sendfile('index.html');
+    res.sendFile(__dirname + '/index.html');
 });
+
 
 var clients = 0;
 var users = [];
@@ -78,6 +79,4 @@ io.on('connection', function (socket) {
     });
 });
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
-});
+http.listen(process.env.PORT || 3000);
